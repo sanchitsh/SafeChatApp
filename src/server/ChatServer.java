@@ -8,7 +8,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class ChatServer {
+public class    ChatServer {
     private static ArrayList<ClientThread>clients;
     public static void main(String args[]){
         int portnumber=69696;
