@@ -1,11 +1,15 @@
 package server;
 
+import client.Client;
+import client.ClientThread;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ChatServer {
-
+    private static ArrayList<ClientThread>clients;
     public static void main(String args[]){
         int portnumber=69696;
         try {
@@ -17,10 +21,14 @@ public class ChatServer {
         }
     }
     public static void addClients(ServerSocket serverSocket){
+        clients=new ArrayList<ClientThread>();
         while(true){
             try {
                 Socket s=serverSocket.accept();
-
+                ClientThread client=new ClientThread(s);
+                Thread thread=new Thread();
+                thread.start();
+                clients.add(client);
             } catch (IOException e) {
                 System.err.println("Could not add more clients");
             }
