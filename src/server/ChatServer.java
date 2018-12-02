@@ -4,14 +4,15 @@ import client.Client;
 import client.ClientThread;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class    ChatServer {
-    private static ArrayList<ClientThread>clients;
+public class ChatServer {
+    protected static ArrayList<ClientThread>clients;
     public static void main(String args[]){
-        int portnumber=69696;
+        int portnumber=6969;
         try {
             ServerSocket serverSocket=new ServerSocket(portnumber);
             addClients(serverSocket);
@@ -33,6 +34,8 @@ public class    ChatServer {
                 System.err.println("Could not add more clients");
             }
         }
+
     }
+
 
 }
