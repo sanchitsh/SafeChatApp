@@ -56,6 +56,7 @@ public class ChatMenu extends JFrame {
         cards.add(characterName);
         cards.add(contactInfo);
         JButton signUp = new JButton("Sign up!");
+        signUp.addActionListener(new openChatBox(this));
         cards.add(signUp);
         add(cards, BorderLayout.CENTER);
         cards.setBorder(BorderFactory.createEmptyBorder(30,10,10,10));
