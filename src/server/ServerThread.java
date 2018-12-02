@@ -14,9 +14,8 @@ public class ServerThread implements Runnable {
     private PrintWriter out;
 
 
-    public ServerThread(Socket socket, String name) {
+    public ServerThread(Socket socket) {
         this.socket=socket;
-        this.name=name;
 
     }
 

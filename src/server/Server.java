@@ -37,7 +37,7 @@ public class Server extends JFrame {
 
     public void startRunning(){
         try{
-            server = new ServerSocket(6969, 100);
+            server = new ServerSocket(6789, 100);
 
             while(true){
                 try{
@@ -47,7 +47,7 @@ public class Server extends JFrame {
                 }catch(EOFException eofException){
                     showMessage("\n Server ended the connection! ");
                 } finally{
-                    closeConnection(); //Changed the name to something more appropriate
+                    closeConnection();
                 }
             }
         } catch (IOException ioException){
@@ -57,9 +57,8 @@ public class Server extends JFrame {
     //wait for connection, then display connection information
     private void waitForConnection() throws IOException{
         showMessage(" Waiting for someone to connect... \n");
-        if(totalppl<=2) {
-            connection = server.accept();totalppl++;
-        }
+            connection = server.accept();
+
         showMessage(" Now connected to " + connection.getInetAddress().getHostName());
     }
 
